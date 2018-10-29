@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.haresh.spring.configuration;
+package com.haresh.usersurvey.configuration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

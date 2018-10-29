@@ -5,4 +5,4 @@
  * @author Haresh.Shaha
  *
  */
-package com.haresh.spring.model;
+package com.haresh.usersurvey.controller;
