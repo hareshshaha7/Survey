@@ -33,13 +33,14 @@
 		    <scope>provided</scope>
 		</dependency>	 
 		
+		
+		<!-- Spring Dependency Start -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-core</artifactId>
 		    <version>${springframework.version}</version>
-		</dependency>
-	    
+		</dependency>	    
 	    
 	    <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 		<dependency>
@@ -67,9 +68,18 @@
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-jdbc</artifactId>
 		    <version>${springframework.version}</version>
-		</dependency>
+		</dependency>		
+		<!-- Spring Dependency End -->
 		
-			
+		<!-- Hibernate Dependency Start -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>5.3.7.Final</version>
+		</dependency>
+		<!-- Hibernate Dependency End -->
+		
 	    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
@@ -87,6 +97,30 @@
 	</dependencies>
   
 	<build>
+		<pluginManagement>
+	        <plugins>
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-compiler-plugin</artifactId>
+	                <version>3.2</version>
+	                <configuration>
+	                    <source>1.8</source>
+	                    <target>1.8</target>
+	                </configuration>
+	            </plugin>
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-war-plugin</artifactId>
+	                <version>2.4</version>
+	                <configuration>
+	                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+	                    <warName>spring.usersurvey</warName>
+	                    <failOnMissingWebXml>false</failOnMissingWebXml>
+	                </configuration>
+	            </plugin>
+	        </plugins>
+	    </pluginManagement>
+       
 		<finalName>UserSurvey</finalName>
 	</build>
 	
