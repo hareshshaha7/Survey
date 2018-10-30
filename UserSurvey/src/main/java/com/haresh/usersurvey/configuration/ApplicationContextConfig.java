@@ -28,8 +28,8 @@ public class ApplicationContextConfig {
 	@Autowired
     private Environment env;
  
-    @Bean
-    public DataSource dataSource() {
+    @Bean(name="sqlDataSource")
+    public DataSource getSQLdataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getRequiredProperty("jdbc.driverClassName"));
         dataSource.setUrl(env.getRequiredProperty("jdbc.url"));
