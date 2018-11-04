@@ -16,6 +16,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.haresh.usersurvey.dao.UserDao;
+import com.haresh.usersurvey.dao.UserDaoImplementation;
+import com.haresh.usersurvey.service.UserService;
+import com.haresh.usersurvey.service.UserServiceImplementation;
+
 /**
  * @author Haresh.Shaha
  *
@@ -38,20 +43,30 @@ public class ApplicationContextConfig {
 		return viewResolver;
 	}
 	
-//    @Bean(name="sqlDataSource")
-//    public DataSource getSQLdataSource() {
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName(env.getRequiredProperty("jdbc.driverClassName"));
-//        dataSource.setUrl(env.getRequiredProperty("jdbc.url"));
-//        dataSource.setUsername(env.getRequiredProperty("jdbc.username"));
-//        dataSource.setPassword(env.getRequiredProperty("jdbc.password"));
-//        return dataSource;
-//    }
-// 
-//    @Bean
-//    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-//        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-//        jdbcTemplate.setResultsMapCaseInsensitive(true);
-//        return jdbcTemplate;
-//    }
+    @Bean(name="sqlDataSource")
+    public DataSource getSQLdataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(env.getRequiredProperty("jdbc.driverClassName"));
+        dataSource.setUrl(env.getRequiredProperty("jdbc.url"));
+        dataSource.setUsername(env.getRequiredProperty("jdbc.username"));
+        dataSource.setPassword(env.getRequiredProperty("jdbc.password"));
+        return dataSource;
+    }
+ 
+    @Bean
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.setResultsMapCaseInsensitive(true);
+        return jdbcTemplate;
+    }
+    
+    @Bean
+    public UserDao UserDao(){
+    	return new UserDaoImplementation();
+    }
+    
+    @Bean
+    public UserService UserService(){
+    	return new UserServiceImplementation();
+    }
 }

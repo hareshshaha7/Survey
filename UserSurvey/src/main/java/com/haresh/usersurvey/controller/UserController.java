@@ -1,25 +1,33 @@
 package com.haresh.usersurvey.controller;
 
-import org.apache.log4j.Logger; 
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.haresh.usersurvey.model.User;
+import com.haresh.usersurvey.service.UserService;
 
 @Controller
 public class UserController {
 	
 	final static Logger logger = Logger.getLogger(UserController.class);
-		
+	@Autowired
+	UserService service;
+	
 	//-------------------Retrieve All Users--------------------------------------------------------
-	// @RequestMapping(value = RestURIConstants.FIND_ALL_USERS, method = RequestMethod.GET )
-	@GetMapping(value = URIConstants.GET_ALL_USERS)
+	@RequestMapping(value = URIConstants.GET_ALL_USERS, method = RequestMethod.GET )
 	public ModelAndView getAllUsers() {
 		System.out.println("Retrieve All Users");
 		logger.info("Retrieve All Users");
 		
-//		List<User> users = service.findAllUsers();
+		List<User> users = service.getAllUsers();
+		System.out.println(users);
 //		if (!users.isEmpty()) 
 //		{
 //			return new ResponseEntity<List<User>>(users, HttpStatus.OK);

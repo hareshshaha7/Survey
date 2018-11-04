@@ -79,6 +79,14 @@
 		</dependency>		
 		<!-- Spring Dependency End -->
 		
+		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+		<dependency>
+		    <groupId>com.microsoft.sqlserver</groupId>
+		    <artifactId>mssql-jdbc</artifactId>
+		    <version>6.1.0.jre8</version>
+		</dependency>
+		
+		
 		<!-- Hibernate Dependency Start -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
