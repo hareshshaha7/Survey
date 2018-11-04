@@ -9,13 +9,13 @@ import com.haresh.usersurvey.model.User;
 
 @Controller
 public class UserController {
+	
 	final static Logger logger = Logger.getLogger(UserController.class);
 		
 	//-------------------Retrieve All Users--------------------------------------------------------
 	// @RequestMapping(value = RestURIConstants.FIND_ALL_USERS, method = RequestMethod.GET )
 	@GetMapping(value = URIConstants.GET_ALL_USERS)
-	public ModelAndView getAllUsers()
-	{
+	public ModelAndView getAllUsers() {
 		System.out.println("Retrieve All Users");
 		logger.info("Retrieve All Users");
 		
