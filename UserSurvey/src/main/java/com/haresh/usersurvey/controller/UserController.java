@@ -1,6 +1,6 @@
 package com.haresh.usersurvey.controller;
 
-import org.apache.log4j.Logger;
+import org.apache.log4j.Logger; 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,7 +27,15 @@ public class UserController {
 //		else 
 //		{
 //			return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
-//		}		
-		return new ModelAndView("index.jsp", "User", new User(1,"Haresh", "Shaha", "Th Harry Show", "email", "asd123"));
+//		}	
+		
+//		return new ModelAndView("index.jsp", "command", new User(1,"Haresh", "Shaha", "Th Harry Show", "email", "asd123"));
+		
+		//return back to index.jsp
+		ModelAndView model = new ModelAndView("index");
+		model.addObject("msg", "Haresh");
+
+		return model;
+
 	}
 }

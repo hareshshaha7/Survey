@@ -33,7 +33,15 @@
 		    <scope>provided</scope>
 		</dependency>	 
 		
-		
+		<!-- Jstl for jsp page -->
+        <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
+        
+        
 		<!-- Spring Dependency Start -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
