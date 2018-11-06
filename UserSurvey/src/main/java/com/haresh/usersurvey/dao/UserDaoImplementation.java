@@ -22,7 +22,7 @@ public class UserDaoImplementation implements UserDao {
 	@Autowired
 	JdbcTemplate template;
 	
-	private final String SQL_GET_ALL_USERS = "Select * from Users";
+	private final String SQL_GET_ALL_USERS = "Select * from [User]";
 	
 	/* (non-Javadoc)
 	 * @see com.haresh.usersurvey.dao.UserDao#getAllUsers()
@@ -43,6 +43,7 @@ public class UserDaoImplementation implements UserDao {
 				user.setDisplayName(resultSet.getString("DisplayName"));
 				user.setEmail(resultSet.getString("Email"));
 				
+				System.out.println(user);
 				return user;
 			}
 			
